@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Credit Card Fraud Detection</title>
+  <style>
+    /* Style for the menu bar */
+    .sidenav {
+      height: 100%;
+      width: 200px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #f1f1f1;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+    /* Style for the menu links */
+    .sidenav a {
+      padding: 50px 8px 6px 16px;
+      text-decoration: none;
+      font-size: 20px;
+      color: #818181;
+      display: block;
+    }
+
+    /* Style for the menu links on hover */
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    /* Style for the title bar */
+    .topnav {
+      overflow: hidden;
+      background-color: #333;
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+
+    /* Style for the title in the title bar */
+    .topnav h1 {
+      color: white;
+      margin: 0;
+      padding: 14px 16px;
+      font-size: 28px;
+      text-align: center;
+    }
+
+    /* Style for the main content */
+    .main {
+      margin-left: 200px;
+      margin-top: 50px;
+      padding: 20px;
+    }
+
+    /* Style for the title in the center */
+    .center-title {
+      text-align: center;
+      margin-top: 100px;
+      font-size: 26px;
+    }
+    .center-sub-title {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+<!-- Menu bar on the left -->
+<div class="sidenav">
+  <a href="home.html">Home</a>
+  <a href="validate.html">Validate Transaction</a>
+  <a href="trends.html">Trends & Visualisations</a>
+</div>
+
+<!-- Title bar on the top -->
+<div class="topnav">
+  <h1 style="text-align: center; margin: auto;">Credit Card Fraud Detection</h1>
+</div>
+
+<!-- Form to input transaction details -->
+<div class="main">
+  <h2>Enter Transaction Details</h2>
+  <br>
+  <form id="transaction-form">
+    <div class="form-group">
+      <label>Credit Card Number:</label> &nbsp
+      <input type="number" id="ccn" name="ccn" size="20" style="width: 250px;">
+      <br><br><br>
+
+      <label>Amount:</label>
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      &nbsp&nbsp
+      <input type="number" id="amt" name="amt" size="20" style="width: 150px;">
+      <br><br><br>
+
+      <label for="hot">Hour of Transaction:</label>
+      &nbsp&nbsp
+      <select id="hot" name="hot">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+        <option value="13">13</option>
+        <option value="14">14</option>
+        <option value="15">15</option>
+        <option value="16">16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+      </select>
+      <br><br><br>
+
+      <label>Age:</label>
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <input type="number" id="age" name="age" size="20" style="width: 150px;">
+      <br><br><br>
+
+      <label for="pc">Purchase Category:</label>
+      &nbsp&nbsp
+      <select id="pc" name="pc">
+        <option value="category_food_dining">Food & Dining</option>
+        <option value="category_gas_transport">Gas & Transport</option>
+        <option value="category_grocery_net">Grocery (Online)</option>
+        <option value="category_grocery_pos">Grocery (Offline)</option>
+        <option value="category_health_fitness">Health & Fitness</option>
+        <option value="category_home">Home</option>
+        <option value="category_kids_pets">Kids & Pets</option>
+        <option value="category_misc_net">Misc (Online)</option>
+        <option value="category_misc_pos">Misc (Offline)</option>
+        <option value="category_personal_care">Personal Care</option>
+        <option value="category_shopping_net">Shopping (Online)</option>
+        <option value="category_shopping_pos">Shopping (Offline)</option>
+        <option value="category_travel">Travel</option>
+      </select>
+      <br><br><br>
+
+      <label for="male">Gender (Male):</label>
+      &nbsp&nbsp
+      <select id="male" name="male">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </select>
+      <br><br><br>
+
+      <label for="dot">Day of Transaction:</label>
+      &nbsp&nbsp&nbsp&nbsp
+      <select id="dot" name="dot">
+        <option value="day_Mon">Monday</option>
+        <option value="day_Tue">Tuesday</option>
+        <option value="day_Wed">Wednesday</option>
+        <option value="day_Thu">Thursday</option>
+        <option value="day_Fri">Friday</option>
+        <option value="day_Sat">Saturday</option>
+        <option value="day_Sun">Sunday</option>
+      </select>
+      <br><br><br>
+
+      <label for="pm">Prediction Model:</label>
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <select id="pm" name="pm">
+        <option value="LR">Logistic Regression</option>
+        <option value="DT">Decision Tree</option>
+        <option value="RF">Random Forest</option>
+      </select>
+
+
+      <br><br><br>
+      <button type="button" id="predict-button" >Predict</button>
+    </div>
+  </form>
+</div>
+<script src="app.js"></script>
+
+</body>
+</html>
+
+
+
+
